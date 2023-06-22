@@ -1,0 +1,1 @@
+docker run -p 5433:5432 -d --name some-postgres -e POSTGRES_PASSWORD=kiara -e PGDATA=/var/lib/postgresql/data/pgdata -v /custom/mount:/var/lib/postgresql/data postgres

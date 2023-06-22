@@ -1,0 +1,43 @@
+-- public.persona definition
+
+-- Drop table
+
+-- DROP TABLE public.persona;
+
+CREATE TABLE public.persona (
+	id serial4 NOT NULL,
+	nombre varchar(80) NULL,
+	apellido varchar(80) NULL,
+	tipodoc varchar(80) NULL,
+	documento varchar(80) NULL,
+	direccion varchar(80) NULL,
+	telefono varchar(80) NULL,
+	mail varchar(80) NULL,
+	estado bool NULL,
+	CONSTRAINT persona_pk PRIMARY KEY (id)
+);
+
+///////////////////////////////////////
+
+-- public.cuenta definition
+
+-- Drop table
+
+-- DROP TABLE public.cuenta;
+
+CREATE TABLE public.cuenta (
+	id serial4 NOT NULL,
+	nombrecuenta varchar(80) NULL,
+	numerocuenta varchar(80) NULL,
+	saldo varchar(80) NULL,
+	limitesaldo varchar(80) NULL,
+	limitetransferencia varchar(80) NULL,
+	estadocuenta bool NULL,
+	idpersona int4 NULL,
+	CONSTRAINT cuenta_pk PRIMARY KEY (id)
+);
+
+
+-- public.cuenta foreign keys
+
+ALTER TABLE public.cuenta ADD CONSTRAINT cuenta_fk FOREIGN KEY (id) REFERENCES public.persona(id);
